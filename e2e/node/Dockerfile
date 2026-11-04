@@ -3,7 +3,7 @@ ARG TELEPORT_VERSION=18
 FROM public.ecr.aws/gravitational/teleport-ent-distroless:${TELEPORT_VERSION} AS src
 
 # Copy the teleport binary to debian so we can SSH into the container and run /bin/bash
-FROM debian:bookworm-slim
+FROM debian:12.15-slim
 
 COPY --from=src /usr/local/bin/teleport /usr/local/bin/teleport
 
